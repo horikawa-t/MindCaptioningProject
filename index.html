@@ -30,7 +30,12 @@
       color: #333;
       margin-bottom: 1rem;
     }
-    header .author {
+    header .author-name {
+      font-size: 1rem;
+      color: #3399cc;
+      margin-bottom: 0.25rem;
+    }
+    header .author-affiliation {
       font-size: 1rem;
       color: #555;
       margin-bottom: 1rem;
@@ -70,6 +75,11 @@
       margin: 0 auto;
       text-align: left;
     }
+    .abstract-section {
+      background-color: #f0f0f0;
+      padding: 2rem 1rem;
+      border-radius: 6px;
+    }
     p, .caption {
       font-size: 1.05rem;
       color: #444;
@@ -98,19 +108,36 @@
       margin: 0 auto 2rem auto;
       text-align: center;
     }
-    .video-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
     .video-caption {
       font-size: 0.95rem;
       color: #555;
     }
-    footer {
+    .talks-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .talk-entry {
+      width: 300px;
       text-align: center;
-      font-size: 0.95rem;
-      color: #777;
-      padding: 2rem;
+    }
+    .talk-entry .talk-title {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .talk-entry .talk-video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .talk-entry .talk-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
     pre.bibtex {
       text-align: left;
@@ -120,13 +147,20 @@
       overflow-x: auto;
       font-size: 0.9rem;
     }
+    footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #777;
+      padding: 2rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Mind Captioning</h1>
     <p class="caption">Evolving descriptive text of mental content from human brain activity</p>
-    <p class="author">Tomoyasu Horikawa, NTT Communication Science Laboratories</p>
+    <p class="author-name">Tomoyasu Horikawa</p>
+    <p class="author-affiliation">NTT Communication Science Laboratories</p>
     <div class="meta-links">
       <a href="https://www.biorxiv.org/content/10.1101/2024.04.23.590673v2">Preprint</a>
       <a href="https://github.com/horikawa-t/MindCaptioning">Code</a>
@@ -137,17 +171,23 @@
 
   <main>
     <section>
-      <h2>Summary</h2>
+      <div class="centered-image">
+        <img src="overview.png" alt="Overview diagram" />
+      </div>
       <div class="section-text">
-        <p>This study introduces a novel generative decoding method called mind captioning, which generates descriptive text mirroring semantic information represented in the brain. The method combines feature decoding of brain activity—using semantic features computed by a deep language model—with a novel text optimization method that iteratively updates candidate descriptions to align their features to the decoded features. This approach produces meaningful linguistic expressions of mental content—both during visual perception and internal recall—without relying on conventional language-processing regions. It offers a path toward brain-to-text communication for individuals with language production difficulties.</p>
+        <p>This study introduces a novel generative decoding method called mind captioning, which generates descriptive text mirroring semantic information represented in the brain. The method combines feature decoding analysis from brain activity—using semantic features computed by a deep language model—with a novel text optimization method that iteratively updates candidate descriptions to align their features to the decoded features. This approach produces meaningful linguistic expressions of mental content—both during visual perception and internal recall—without relying on conventional language-processing regions. It offers a path toward non-verbal thought-based brain-to-text communication for individuals with language production difficulties.</p>
       </div>
     </section>
 
     <section>
-      <h2>Overview</h2>
-      <div class="centered-image">
-        <img src="overview.png" alt="Overview diagram" />
+      <div class="video-block">
+        <video controls src="https://figshare.com/ndownloader/files/50289609"></video>
+        <p class="video-caption">Examples of evolved descriptions of viewed content during the optimization process.</p>
       </div>
+    </section>
+
+    <section class="abstract-section">
+      <h2>Abstract</h2>
       <div class="section-text">
         <p>A central challenge in neuroscience is decoding brain activity to uncover mental content comprising multiple components and their interactions. Despite progress in decoding language-related information from human brain activity, generating comprehensive descriptions of complex mental content associated with structured visual semantics remains challenging. We present a method that generates descriptive text mirroring brain representations via semantic features computed by a deep language model. Constructing linear decoding models to translate brain activity induced by videos into semantic features of corresponding captions, we optimized candidate descriptions by aligning their features with brain-decoded features through word replacement and interpolation. This process yielded well-structured descriptions accurately capturing viewed content, even without relying on the canonical language network, suggesting the feasibility of translating non-verbal visual semantics to linguistic outputs. The method also successfully generalized to verbalize recalled content, demonstrating the potential for non-verbal thought-based brain-to-text communication, which could aid individuals with language expression difficulties.</p>
       </div>
@@ -155,11 +195,6 @@
 
     <section>
       <h2>Results</h2>
-      <div class="video-block">
-        <p class="video-title">Optimization process</p>
-        <video controls src="https://figshare.com/ndownloader/files/50289609"></video>
-        <p class="video-caption">Examples of evolved descriptions of viewed content during the optimization process.</p>
-      </div>
       <div class="video-pair">
         <div class="video-sub">
           <p class="video-title">Viewed content captions (all subjects)</p>
@@ -169,6 +204,9 @@
           <p class="video-title">Recalled content captions (all subjects)</p>
           <video controls src="https://figshare.com/ndownloader/files/50289615"></video>
         </div>
+      </div>
+      <div class="section-text" style="margin-top: 1.5rem;">
+        <p>Our method generates not only descriptions of viewed content but also descriptions of recalled content from brain activity, enabling verbalization of internally imagined experiences.</p>
       </div>
     </section>
 
@@ -190,7 +228,16 @@
     </section>
 
     <section>
-      <h2>Contact</h2>
-      <p>For inquiries, please contact <a href="mailto:horikawa.t@gmail.com">horikawa.t@gmail.com</a>.</p>
+      <h2>Talks</h2>
+      <div class="talks-container">
+        <div class="talk-entry">
+          <div class="talk-title"><a href="https://www.youtube.com/watch?v=h4GMBMfFQ24" target="_blank">NLP2025 in Nagasaki</a></div>
+          <div class="talk-video">
+            <iframe src="https://www.youtube.com/embed/h4GMBMfFQ24" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </section>
-  </main
+  </main>
+</body>
+</html>
