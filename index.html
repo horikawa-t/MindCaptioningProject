@@ -162,7 +162,8 @@
     <p class="author-name">Tomoyasu Horikawa</p>
     <p class="author-affiliation">NTT Communication Science Laboratories</p>
     <div class="meta-links">
-      <a href="https://www.biorxiv.org/content/10.1101/2024.04.23.590673">Preprint</a>
+      <a href="https://doi.org/10.1126/sciadv.adw1464">Journal</a>
+     <a href="https://www.biorxiv.org/content/10.1101/2024.04.23.590673v5">Preprint</a>
       <a href="https://github.com/horikawa-t/MindCaptioning">Code</a>
       <a href="https://doi.org/10.18112/openneuro.ds005191.v1.0.2">Raw data</a>
       <a href="https://doi.org/10.6084/m9.figshare.25808179">Preprocessed data</a>
@@ -210,6 +211,90 @@
       </div>
     </section>
 
+<section>
+  <h2>Q&A</h2>
+  <div class="section-text">
+
+    <div class="qa-item">
+      <h3>Q1: What is Mind Captioning?</h3>
+      <p>A1: Mind Captioning is a generative decoding method that translates brain activity into descriptive text. It uses deep language models to compute semantic features from candidate texts and then iteratively refines these descriptions to align them with the semantic features decoded from the brain.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q2: How does Mind Captioning work?</h3>
+      <p>A2: The method decodes (translates) brain activity patterns related to visual stimuli and internal recall into semantic features, refining text descriptions by aligning their semantic features with those decoded from the brain. A key aspect of this process is the generative optimization algorithm, which allows flexible text generation without requiring additional model training. We confirmed that the algorithm can reconstruct the original text from semantic features with high fidelity.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q3: What did you find using this method?</h3>
+      <p>A3: We found that Mind Captioning can generate descriptive text for both viewed and recalled content based on brain activity, without relying on the language network. This suggests the potential for non-verbal, thought-based brain-to-text communication.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q4: Is this a language decoding or reconstruction system?</h3>
+      <p>A4: No, it is neither a language decoding nor a reconstruction system. Non-verbal visual information does not always align with specific linguistic descriptions. Instead, our method identifies the optimal linguistic description that aligns with visual semantic representations in the brain, positioning it as an interpretive interface rather than a language decoding system. Several factors support this view: (1) descriptions are generated without involving the language network, (2) although the output is in English, all participants were non-native speakers, and (3) the decoders were trained using non-linguistic visual stimuli.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q5: Can I easily test this using my own brain activity? Is there any risk of my brain activity being read?</h3>
+      <p>A5: At present, testing requires specialized equipment and significant cooperative participation over many hours. While there are no immediate risks of unauthorized reading of brain activity in casual circumstances, the ability to decode recalled content into text raises important privacy concerns. This technology should be used with caution, particularly when it comes to potential risks associated with decoding private thoughts. However, it is important to note that this method is not yet at a stage where it can be easily applied in everyday situations or personal testing.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q6: Does this reflect the subject's subjective experience?</h3>
+      <p>A6: To some extent, yes. The generated text tends to align with each subject’s own perception of the viewed content, as suggested by its similarity to captions that participants rated as more consistent with their experience. However, further validation is needed to determine how closely the generated descriptions truly correspond to what each subject actually perceived through self-assessment.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q7: Can we expect further improvements in accuracy?</h3>
+      <p>A7: Yes, further improvements are expected. The study suggests that using language models with semantic representations more closely aligned with the brain will likely improve accuracy, as shown by the validation within the paper.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q8: What are the potential applications?</h3>
+      <p>A8: A key application is facilitating communication for individuals with language production difficulties, such as those with aphasia. This method, which does not rely on language areas in the brain, may assist those with language damage (e.g., aphasia, ALS) by providing an alternative communication path. It could also help in verbalizing internally recalled content, offering insights into mental states.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q9: Can this be applied to other sensory modalities, like sound or touch?</h3>
+      <p>A9: Yes, this method would be adaptable to other sensory modalities. As long as there is a labeled brain activity dataset for the modality, the method can be applied to sensory information like sound or touch, without needing separate models or large curated databases for each type.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q10: Does this help in understanding the brain?</h3>
+      <p>A10: Yes, the method helps uncover how structured visual semantic information is represented in the brain. However, model and data biases could influence the results. Further tests in contrasting conditions are needed to validate if the brain truly represents compositional information.</p>
+    </div>
+
+    <div class="qa-item">
+      <h3>Q11: Could this method be applied to dream decoding?</h3>
+      <p>A11: While the method shows potential for dream decoding, further research is needed. This study focused on voluntary, recall-based imagery, so additional testing would be required to determine its applicability to spontaneous imagery, such as dreams or mind-wandering.</p>
+    </div>
+
+  </div>
+</section>
+    
+    
+<section>
+  <h2>BibTeX Citation</h2>
+<!--  <details>
+    <summary>Click to view BibTeX</summary>
+    -->
+<pre class="bibtex">
+@article{Horikawa2025sciadv,
+  author = {Tomoyasu Horikawa},
+  title = {Mind captioning: Evolving descriptive text of mental content from human brain activity},
+  journal = {Science Advances},
+  volume = {11},
+  number = {45},
+  pages = {eadw1464},
+  year = {2025},
+  doi = {10.1126/sciadv.adw1464},
+  URL = {https://www.science.org/doi/10.1126/sciadv.adw1464}
+}
+</pre>
+  </details>
+</section>
+<!--
     <section>
       <h2>BibTeX Citation</h2>
       <pre class="bibtex">
@@ -224,8 +309,7 @@
   eprint = {https://www.biorxiv.org/content/early/2024/04/26/2024.04.23.590673.full.pdf},
   journal = {bioRxiv}
 }
-      </pre>
-    </section>
+-->
 
   </main>
 </body>
